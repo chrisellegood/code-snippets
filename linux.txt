@@ -1,27 +1,39 @@
 Install PIP On Debian/Ubuntu
+-----------------------------------
 # apt install python-pip	#python 2
 # apt install python3-pip	#python 3
 
 Install Youtube-Dl
+-----------------------------------
 https://rg3.github.io/youtube-dl/download.html
 sudo pip install --upgrade youtube_dl
 
 Randomize a Set of JPGs
+-----------------------------------
 i=1; shuf -z -e -- * | while IFS= read -rd '' f; do echo mv -- "$f" "File-$((i++)).jpg"; done
 
 Best Quality Download Youtube-dl
+-----------------------------------
 youtube-dl -f best 'http://www.youtube.com/watch?v=P9pzm5b6FFY'
 youtube-dl --extract-audio --audio-format mp3 https://www.youtube.com/watch?v=9D05ej8u-gU
 
 Install FFMPEG
+-----------------------------------
 sudo apt updateRandomize a Set of JPGs
 i=1; shuf -z -e -- * | while IFS= read -rd '' f; do echo mv -- "$f" "File-$((i++)).jpg"; done
 
 Best Quality Download Youtube-dl
-youtube-dl -f best 'http://www.youtube.com/watch?v=P9pzm5b6FFY'
+-----------------------------------
+youtube-dl -f best -o '%(title)s.%(ext)s' --ignore-errors 'http://www.youtube.com/watch?v=P9pzm5b6FFY'
 youtube-dl --extract-audio --audio-format mp3 https://www.youtube.com/watch?v=9D05ej8u-gU
 
 Install FFMPEG
+-----------------------------------
 sudo apt update
 sudo apt install ffmpeg
 sudo apt install ffmpeg
+
+Convert a directory of MP4 to MP3
+-----------------------------------
+mkdir outputs
+for f in *.mp4; do ffmpeg -i "$f" -c:a libmp3lame "outputs/${f%.mp4}.mp3"; done
