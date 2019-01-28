@@ -1,3 +1,7 @@
 Install PIP On Debian/Ubuntu
 # apt install python-pip	#python 2
 # apt install python3-pip	#python 3
+
+Install Youtube-Dl
+https://rg3.github.io/youtube-dl/download.html
+sudo pip install --upgrade youtube_dl
