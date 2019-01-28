@@ -5,3 +5,6 @@ Install PIP On Debian/Ubuntu
 Install Youtube-Dl
 https://rg3.github.io/youtube-dl/download.html
 sudo pip install --upgrade youtube_dl
+
+Randomize a Set of JPGs
+i=1; shuf -z -e -- * | while IFS= read -rd '' f; do echo mv -- "$f" "File-$((i++)).jpg"; done
